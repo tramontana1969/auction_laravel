@@ -14,4 +14,7 @@ class Auction extends Model
         'place',
         'description'
     ];
+    public function item() {
+        return $this->belongsToMany('App\Models\Item');
+    }
 }

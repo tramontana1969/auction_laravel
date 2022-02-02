@@ -20,4 +20,7 @@ class Item extends Model
     public function customer() {
         return $this->belongsTo('App\Models\Customer');
     }
+    public function auction() {
+        return $this->belongsToMany('App\Models\Auction');
+    }
 }
