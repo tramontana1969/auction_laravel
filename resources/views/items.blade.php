@@ -59,7 +59,7 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Seller:</label>
+                            <label for="recipient-name" class="col-form-label">Customer:</label>
                             <select class="form-select" aria-label="Default select example" name="customer_id">
                                 <option selected> </option>
                                 @for($i = 0; $i < count($customers); $i++)
