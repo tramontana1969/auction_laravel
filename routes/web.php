@@ -33,3 +33,9 @@ Route::post('/sellers', [\App\Http\Controllers\Models\SellerController::class, '
 Route::get('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'showOne']);
 Route::post('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'edit']);
 Route::get('/sellers/delete/{id}', [\App\Http\Controllers\Models\SellerController::class, 'delete']);
+
+Route::get('/customers', [\App\Http\Controllers\Models\CustomerController::class, 'show']);
+Route::post('/customers', [\App\Http\Controllers\Models\CustomerController::class, 'add']);
+Route::get('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'showOne']);
+Route::post('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'edit']);
+Route::get('/customers/delete/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'delete']);

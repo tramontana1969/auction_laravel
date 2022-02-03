@@ -19,7 +19,7 @@
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/auctions">Auctions</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/items">Items</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/sellers">Sellers</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Customers</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/customers">Customers</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Prices</a>
         </div>
     </div>

@@ -18,26 +18,29 @@ class CustomerController extends Controller
         if ($request->isMethod('post')) {
             $data = $request->validate(
                 [
-                    'name'
+                    'name' => 'required|max:24'
                 ]
             );
             $customer = new Customer($data);
             $customer->save();
+            return redirect()->refresh();
         }
     }
     public function edit(Request $request, $id) {
         if($request->isMethod('post')) {
             $data = $request->validate(
                 [
-                    'name'
+                    'name' => 'required|max:24'
                 ]
             );
             $customer = Customer::find($id);
             $customer->name = $data['name'];
             $customer->save();
+            return redirect()->refresh();
         }
     }
     public function delete($id) {
         Customer::find($id)->delete();
+        return redirect('customers');
     }
 }
