@@ -17,7 +17,7 @@
         <div class="sidebar-heading border-bottom bg-light">Auction Corporation</div>
         <div class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/auctions">Auctions</a>
-            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Items</a>
+            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="/items">Items</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Sellers</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Customers</a>
             <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Prices</a>

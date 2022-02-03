@@ -21,3 +21,9 @@ Route::post('/auctions', [\App\Http\Controllers\Models\AuctionController::class,
 Route::get('/auctions/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'showOne']);
 Route::post('/auctions/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'edit']);
 Route::get('/auctions/delete/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'delete']);
+
+Route::get('/items', [\App\Http\Controllers\Models\ItemController::class, 'show']);
+Route::post('/items', [\App\Http\Controllers\Models\ItemController::class, 'add']);
+Route::get('/items/{id}', [\App\Http\Controllers\Models\ItemController::class, 'showOne']);
+Route::post('/items/{id}', [\App\Http\Controllers\Models\ItemController::class, 'edit']);
+Route::get('/items/delete/{id}', [\App\Http\Controllers\Models\ItemController::class, 'delete']);

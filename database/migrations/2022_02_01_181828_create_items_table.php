@@ -15,9 +15,9 @@ class CreateItemsTable extends Migration
     {   if (Schema::hasTable('items')) {
             Schema::table('items', function (Blueprint $table) {
                $table->char('name', 48);
-               $table->integer('lot');
+               $table->integer('lot')->nullable();
                $table->unsignedBigInteger('seller_id');
-               $table->unsignedBigInteger('customer_id');
+               $table->unsignedBigInteger('customer_id')->nullable();
 
                $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade');
                $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
@@ -28,9 +28,9 @@ class CreateItemsTable extends Migration
                 $table->id();
                 $table->timestamps();
                 $table->char('name', 48);
-                $table->integer('lot');
+                $table->integer('lot')->nullable();
                 $table->unsignedBigInteger('seller_id');
-                $table->unsignedBigInteger('customer_id');
+                $table->unsignedBigInteger('customer_id')->nullable();
 
                 $table->foreign('seller_id')->references('id')->on('sellers')->onDelete('cascade');
                 $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
