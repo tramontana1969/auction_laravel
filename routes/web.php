@@ -39,3 +39,9 @@ Route::post('/customers', [\App\Http\Controllers\Models\CustomerController::clas
 Route::get('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'showOne']);
 Route::post('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'edit']);
 Route::get('/customers/delete/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'delete']);
+
+Route::get('/prices', [\App\Http\Controllers\Models\AuctionItemController::class, 'show']);
+Route::post('/prices', [\App\Http\Controllers\Models\AuctionItemController::class, 'add']);
+Route::get('/prices/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'showOne']);
+Route::post('/prices/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'edit']);
+Route::get('/prices/delete/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'delete']);

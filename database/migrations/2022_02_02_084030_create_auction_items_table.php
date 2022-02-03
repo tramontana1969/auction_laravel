@@ -18,7 +18,7 @@ class CreateAuctionItemsTable extends Migration
                 $table->unsignedBigInteger('auction_id');
                 $table->unsignedBigInteger('item_id');
                 $table->integer('start_price');
-                $table->integer('actual_price');
+                $table->integer('actual_price')->nullable();
                 $table->text('description');
 
                 $table->foreign('auction_id')->references('id')->on('auctions')->onDelete('cascade');
@@ -32,7 +32,7 @@ class CreateAuctionItemsTable extends Migration
                 $table->unsignedBigInteger('auction_id');
                 $table->unsignedBigInteger('item_id');
                 $table->integer('start_price');
-                $table->integer('actual_price');
+                $table->integer('actual_price')->nullable();
                 $table->text('description');
 
                 $table->foreign('auction_id')->references('id')->on('auctions')->onDelete('cascade');
