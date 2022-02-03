@@ -23,6 +23,7 @@ class SellerController extends Controller
             );
             $seller = new Seller($data);
             $seller->save();
+            return redirect()->refresh();
         }
     }
     public function edit(Request $request, $id) {
@@ -35,9 +36,11 @@ class SellerController extends Controller
             $seller = Seller::find($id);
             $seller->name = $data['name'];
             $seller->save();
+            return redirect()->refresh();
         }
     }
     public function delete($id) {
         Seller::find($id)->delete();
+        return redirect('sellers');
     }
 }

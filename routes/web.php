@@ -27,3 +27,9 @@ Route::post('/items', [\App\Http\Controllers\Models\ItemController::class, 'add'
 Route::get('/items/{id}', [\App\Http\Controllers\Models\ItemController::class, 'showOne']);
 Route::post('/items/{id}', [\App\Http\Controllers\Models\ItemController::class, 'edit']);
 Route::get('/items/delete/{id}', [\App\Http\Controllers\Models\ItemController::class, 'delete']);
+
+Route::get('/sellers', [\App\Http\Controllers\Models\SellerController::class, 'show']);
+Route::post('/sellers', [\App\Http\Controllers\Models\SellerController::class, 'add']);
+Route::get('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'showOne']);
+Route::post('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'edit']);
+Route::get('/sellers/delete/{id}', [\App\Http\Controllers\Models\SellerController::class, 'delete']);
