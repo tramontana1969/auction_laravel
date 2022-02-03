@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Auction {{ $auction['date'] }}</title>
+    <title>{{ $auction['place'] }}, {{ $auction['date'] }}</title>
 </head>
 <body>
 @extends('main')
