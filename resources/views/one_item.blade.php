@@ -49,7 +49,7 @@
                             <input type="number" class="form-control" name="lot" value="{{ $item['lot'] }}">
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">seller_id:</label>
+                            <label for="message-text" class="col-form-label">Seller:</label>
                             <select class="form-select" aria-label="Default select example" name="seller_id">
                                 <option selected value="{{ $seller['id'] }}">{{ $seller['name'] }}</option>
                                 @foreach($other_sellers as $data)
@@ -58,7 +58,7 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Customer_id:</label>
+                            <label for="message-text" class="col-form-label">Customer:</label>
                             <select class="form-select" aria-label="Default select example" name="customer_id">
                                 @if ($customer === null)
                                     <option selected> </option>
