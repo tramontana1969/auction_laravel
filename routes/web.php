@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
+Route::get('/auctions', [\App\Http\Controllers\Models\AuctionController::class, 'show']);
+Route::post('/auctions', [\App\Http\Controllers\Models\AuctionController::class, 'add']);
+Route::get('/auctions/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'showOne']);
+Route::post('/auctions/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'edit']);
+Route::get('/auctions/delete/{id}', [\App\Http\Controllers\Models\AuctionController::class, 'delete']);

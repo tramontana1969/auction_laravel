@@ -27,6 +27,7 @@ class AuctionController extends Controller
         }
         $auction = new Auction($data);
         $auction->save();
+        return redirect()->refresh();
     }
     public function edit(Request $request, $id) {
         if ($request->isMethod('post')) {
@@ -44,9 +45,11 @@ class AuctionController extends Controller
             $auction->place = $data['place'];
             $auction->description = $data['description'];
             $auction->save();
+            return redirect()->refresh();
         }
     }
     public function delete($id) {
         Auction::find($id)->delete();
+        return redirect('auctions');
     }
 }
