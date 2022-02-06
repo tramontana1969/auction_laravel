@@ -22,3 +22,4 @@ Route::resource('/sellers', 'App\Http\Controllers\Models\SellerController');
 Route::resource('/customers', 'App\Http\Controllers\Models\CustomerController');
 Route::resource('/auctions', 'App\Http\Controllers\Models\AuctionController');
 Route::resource('/items', 'App\Http\Controllers\Models\ItemController');
+Route::resource('/prices', 'App\Http\Controllers\Models\AuctionItemController');
