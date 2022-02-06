@@ -19,3 +19,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::resource('/sellers', 'App\Http\Controllers\Models\SellerController');
+Route::resource('/customers', 'App\Http\Controllers\Models\CustomerController');
