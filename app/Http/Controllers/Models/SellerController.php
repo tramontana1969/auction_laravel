@@ -8,39 +8,25 @@ use Illuminate\Http\Request;
 
 class SellerController extends Controller
 {
-    public function show() {
-        return view('sellers', ['sellers' => Seller::all()]);
+    public function index(Request $request) {
+        $seller = Seller::all();
+        return $seller;
     }
-    public function showOne($id) {
-        return view('one_seller', ['seller' => Seller::find($id)]);
+    public function show($id) {
+        return $seller = Seller::find($id);
     }
-    public function add(Request $request) {
-        if ($request->isMethod('post')) {
-            $data = $request->validate(
-                [
-                    'name' => 'required|max:24'
-                ]
-            );
-            $seller = new Seller($data);
-            $seller->save();
-            return redirect()->refresh();
-        }
+    public function store(Request $request) {
+        $seller = Seller::create($request -> all());
+        return $seller;
     }
-    public function edit(Request $request, $id) {
-        if ($request->isMethod('post')) {
-            $data = $request->validate(
-                [
-                    'name' => 'required|max:24'
-                ]
-            );
-            $seller = Seller::find($id);
-            $seller->name = $data['name'];
-            $seller->save();
-            return redirect()->refresh();
-        }
+    public function update(Request $request, $id) {
+        $seller = Seller::find($id);
+        $seller -> update($request->except(['id']));
+        $seller -> save();
+        return response()->json($seller);
     }
-    public function delete($id) {
+    public function destroy($id) {
         Seller::find($id)->delete();
-        return redirect('sellers');
+        return response(null, 204);
     }
 }
