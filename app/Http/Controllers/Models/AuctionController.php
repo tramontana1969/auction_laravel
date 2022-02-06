@@ -8,48 +8,23 @@ use Illuminate\Http\Request;
 
 class AuctionController extends Controller
 {
-    public function show() {
-        return view('auctions', ['auctions' => Auction::all()]);
+    public function index() {
+        return Auction::all();
     }
-    public function showOne($id) {
-        return view('one_auction', ['auction' => Auction::find($id)]);
+    public function show($id) {
+        return Auction::find($id);
     }
-    public function add(Request $request) {
-        if ($request->isMethod('post')) {
-            $data = $request->validate(
-                [
-                    'date' => 'required',
-                    'time' => 'required',
-                    'place' => 'required|max:64',
-                    'description' => 'required',
-                ]
-            );
-        }
-        $auction = new Auction($data);
+    public function store(Request $request) {
+        return Auction::create($request->all());
+    }
+    public function update(Request $request, $id) {
+        $auction = Auction::find($id);
+        $auction->update($request->except(['id']));
         $auction->save();
-        return redirect()->refresh();
+        return response()->json($auction);
     }
-    public function edit(Request $request, $id) {
-        if ($request->isMethod('post')) {
-            $data = $request->validate(
-                [
-                    'date' => 'required',
-                    'time' => 'required',
-                    'place' => 'required|max:64',
-                    'description' => 'required',
-                ]
-            );
-            $auction = Auction::find($id);
-            $auction->date = $data['date'];
-            $auction->time = $data['time'];
-            $auction->place = $data['place'];
-            $auction->description = $data['description'];
-            $auction->save();
-            return redirect()->refresh();
-        }
-    }
-    public function delete($id) {
+    public function destroy($id) {
         Auction::find($id)->delete();
-        return redirect('auctions');
+        return response(null, 204);
     }
 }
