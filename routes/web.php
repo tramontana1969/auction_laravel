@@ -45,3 +45,10 @@ Route::post('/prices', [\App\Http\Controllers\Models\AuctionItemController::clas
 Route::get('/prices/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'showOne']);
 Route::post('/prices/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'edit']);
 Route::get('/prices/delete/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'delete']);
+
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
