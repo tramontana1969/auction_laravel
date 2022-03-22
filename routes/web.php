@@ -29,15 +29,11 @@ Route::post('/items/{id}', [\App\Http\Controllers\Models\ItemController::class, 
 Route::get('/items/delete/{id}', [\App\Http\Controllers\Models\ItemController::class, 'delete']);
 
 Route::get('/sellers', [\App\Http\Controllers\Models\SellerController::class, 'show']);
-Route::post('/sellers', [\App\Http\Controllers\Models\SellerController::class, 'add']);
 Route::get('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'showOne']);
-Route::post('/sellers/{id}', [\App\Http\Controllers\Models\SellerController::class, 'edit']);
 Route::get('/sellers/delete/{id}', [\App\Http\Controllers\Models\SellerController::class, 'delete']);
 
 Route::get('/customers', [\App\Http\Controllers\Models\CustomerController::class, 'show']);
-Route::post('/customers', [\App\Http\Controllers\Models\CustomerController::class, 'add']);
 Route::get('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'showOne']);
-Route::post('/customers/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'edit']);
 Route::get('/customers/delete/{id}', [\App\Http\Controllers\Models\CustomerController::class, 'delete']);
 
 Route::get('/prices', [\App\Http\Controllers\Models\AuctionItemController::class, 'show']);

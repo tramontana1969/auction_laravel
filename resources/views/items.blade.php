@@ -29,6 +29,7 @@
         @endfor
     </table>
 
+    @role('user|admin')
     <button style="margin-left: 0.8%" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
         Add item
     </button>
@@ -51,12 +52,7 @@
                             <input type="number" class="form-control" name="lot">
                         </div>
                         <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Seller:</label>
-                            <select class="form-select" aria-label="Default select example" name="seller_id">
-                                @for($i = 0; $i < count($sellers); $i++)
-                                    <option value="{{ $sellers[$i]['id'] }}">{{ $sellers[$i]['name'] }}</option>
-                                @endfor
-                            </select>
+                            <input type="hidden" name="seller_id" value="{{$user['id']}}"/>
                         </div>
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Customer:</label>
@@ -75,6 +71,7 @@
             </div>
         </div>
     </div>
+    @endrole
 @endsection
 </body>
 </html>

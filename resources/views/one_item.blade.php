@@ -26,6 +26,8 @@
             <td><a href="/customers/{{ $item['customer_id'] }}">{{ $item['customer_id'] }}</a></td>
         </tr>
     </table>
+
+    @if ($check && $user->hasRole('user') && $user['id'] == $item['seller_id'] || $check && $user->hasRole('admin'))
     <button style="margin-left: 0.8%" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">
         Edit
     </button>
@@ -49,13 +51,9 @@
                             <input type="number" class="form-control" name="lot" value="{{ $item['lot'] }}">
                         </div>
                         <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Seller:</label>
-                            <select class="form-select" aria-label="Default select example" name="seller_id">
-                                <option selected value="{{ $seller['id'] }}">{{ $seller['name'] }}</option>
-                                @foreach($other_sellers as $data)
-                                    <option value="{{ $data['id'] }}">{{ $data['name'] }}</option>
-                                @endforeach
-                            </select>
+                            @if ($check)
+                            <input type="hidden" name="seller_id" value="{{$user['id']}}"/>
+                            @endif
                         </div>
                         <div class="mb-3">
                             <label for="message-text" class="col-form-label">Customer:</label>
@@ -107,6 +105,7 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 </body>
 </html>

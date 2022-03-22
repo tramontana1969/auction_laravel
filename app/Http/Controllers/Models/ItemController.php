@@ -7,30 +7,35 @@ use App\Models\Customer;
 use App\Models\Item;
 use App\Models\Seller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
     public function show() {
+        $user = Auth::user();
+        $check = Auth::check();
+
         return view('items', [
             'items' => Item::all(),
-            'sellers' => Seller::all(),
-            'customers' => Customer::all()
+            'customers' => Customer::all(),
+            'user' => $user,
+            'check' => $check,
         ]);
     }
     public function showOne($id) {
         $item = Item::find($id);
-        $seller = $item->seller;
+        $user = Auth::user();
         $customer = $item->customer;
-        $other_sellers = Seller::all()->where('id', '!=', $item->seller_id);
         $other_customers = Customer::all()->where('id', '!=', $item->customer_id);
         $all_customers = Customer::all();
+        $check = Auth::check();
         return view('one_item', [
             'item' => $item,
-            'seller' => $seller,
-            'other_sellers' => $other_sellers,
+            'user' => $user,
             'customer' => $customer,
             'other_customers' => $other_customers,
-            'all_customers' => $all_customers
+            'all_customers' => $all_customers,
+            'check' => $check,
         ]);
     }
     public function add(Request $request) {
