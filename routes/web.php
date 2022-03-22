@@ -47,7 +47,11 @@ Route::post('/prices/{id}', [\App\Http\Controllers\Models\AuctionItemController:
 Route::get('/prices/delete/{id}', [\App\Http\Controllers\Models\AuctionItemController::class, 'delete']);
 
 
-
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::get('/admin', [App\Http\Controllers\Models\UserController::class, 'show']);
+    Route::get('/admin/user/{id}', [App\Http\Controllers\Models\UserController::class, 'showOne']);
+    Route::post('/admin/user/{id}', [App\Http\Controllers\Models\UserController::class, 'edit']);
+});
 
 Auth::routes();
 
